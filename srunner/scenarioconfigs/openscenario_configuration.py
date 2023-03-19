@@ -87,7 +87,7 @@ class OpenScenarioConfiguration(ScenarioConfiguration):
         self._check_version()
         self._load_catalogs()
         self._set_scenario_name()
-        # self._set_carla_town()
+        self._set_carla_town()
         self._set_actor_information()
 
         # self._validate_result()
@@ -165,20 +165,20 @@ class OpenScenarioConfiguration(ScenarioConfiguration):
                 raise AttributeError("The provided RoadNetwork '{}' does not exist".format(self.town))
 
         # workaround for relative positions during init
-        world = self.client.get_world()
-        if world is None or world.get_map().name != self.town:
-            self.logger.warning(" Wrong OpenDRIVE map in use. Forcing reload of CARLA world")
-            if ".xodr" in self.town:
-                with open(self.town) as od_file:
-                    data = od_file.read()
-                self.client.generate_opendrive_world(str(data))
-            else:
-                self.client.load_world(self.town)
-            world = self.client.get_world()
-            CarlaDataProvider.set_world(world)
-            world.wait_for_tick()
-        else:
-            CarlaDataProvider.set_world(world)
+        # world = self.client.get_world()
+        # if world is None or world.get_map().name != self.town:
+        #     self.logger.warning(" Wrong OpenDRIVE map in use. Forcing reload of CARLA world")
+        #     if ".xodr" in self.town:
+        #         with open(self.town) as od_file:
+        #             data = od_file.read()
+        #         self.client.generate_opendrive_world(str(data))
+        #     else:
+        #         self.client.load_world(self.town)
+        #     world = self.client.get_world()
+        #     CarlaDataProvider.set_world(world)
+        #     world.wait_for_tick()
+        # else:
+        #     CarlaDataProvider.set_world(world)
 
     def _set_parameters(self):
         """
