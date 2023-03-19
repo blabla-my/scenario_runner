@@ -87,10 +87,10 @@ class OpenScenarioConfiguration(ScenarioConfiguration):
         self._check_version()
         self._load_catalogs()
         self._set_scenario_name()
-        self._set_carla_town()
+        # self._set_carla_town()
         self._set_actor_information()
 
-        self._validate_result()
+        # self._validate_result()
 
     def _check_version(self):
         """

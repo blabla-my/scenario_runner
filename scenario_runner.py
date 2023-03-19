@@ -322,7 +322,7 @@ class ScenarioRunner(object):
             self.world.apply_settings(settings)
 
         self.traffic_manager.set_synchronous_mode(True)
-        self.traffic_manager.set_random_device_seed(int(self._args.trafficManagerSeed))
+        # self.traffic_manager.set_random_device_seed(int(self._args.trafficManagerSeed))
 
         CarlaDataProvider.set_client(self.client)
         CarlaDataProvider.set_world(self.world)
