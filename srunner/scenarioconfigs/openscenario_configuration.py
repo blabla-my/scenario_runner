@@ -162,7 +162,8 @@ class OpenScenarioConfiguration(ScenarioConfiguration):
             if not os.path.isabs(self.town):
                 self.town = os.path.dirname(os.path.abspath(self._filename)) + "/" + self.town
             if not os.path.exists(self.town):
-                raise AttributeError("The provided RoadNetwork '{}' does not exist".format(self.town))
+                # raise AttributeError("The provided RoadNetwork '{}' does not exist".format(self.town))
+                pass
 
         # workaround for relative positions during init
         # world = self.client.get_world()
